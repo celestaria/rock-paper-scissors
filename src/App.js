@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import React from 'react'
 import './App.css'
+import Modal from 'react-modal';
 
 const App = () => {
   const [userChoice, setUserChoice] = useState('empty')
@@ -26,6 +28,19 @@ const App = () => {
   const reset = () => {
     window.location.reload()
   }
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   useEffect(() => {
     const comboMoves = userChoice + computerChoice
@@ -33,6 +48,7 @@ const App = () => {
       if (comboMoves === 'emptyempty') {
         setTurnResult("Start!")
       }
+
       if (comboMoves === 'ScissorsPaper' || comboMoves === 'RockScissors' || comboMoves === 'PaperRock') {
         // userPoints.current += 1
         const updatedUserPoints = userPoints + 1
@@ -99,6 +115,27 @@ const App = () => {
             {choice} 
           </button>
         )}
+      </div>
+      <div>
+      <button className='button' onClick={openModal}>Rules</button>
+      <Modal
+        className = 'modal'
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+      >
+          <div className='modal'>
+          <h2>Rules</h2>
+          <ul>Select rock, paper, or scissors each round!</ul>
+          <ul>First to 10 points wins!</ul>
+          <ul>Remember 3 things:</ul>
+          <ul>1. Rock wins against scissors</ul>
+          <ul>2. Scissors win against paper</ul>
+          <ul>3. Paper wins against rock</ul>
+          <button className='button' onClick={closeModal}>Back</button>
+          </div>
+      </Modal>
       </div>
       <div className='button-div'>
         {gameOver && 
