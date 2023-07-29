@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 const App = () => {
-  const [userChoice, setUserChoice] = useState(null)
-  const [computerChoice, setComputerChoice] = useState(null)
+  const [userChoice, setUserChoice] = useState('empty')
+  const [computerChoice, setComputerChoice] = useState('empty')
   const [userPoints, setUserPoints] = useState(0)
   const [computerPoints, setComputerPoints] = useState(0)
   const [turnResult, setTurnResult] = useState(null)
@@ -12,7 +12,7 @@ const App = () => {
   const choices = ['rock', 'paper', 'scissors']
 
   const handleClick = (value) => {
-    if (!gameOver && value !== null) {
+    if (!gameOver && value !== 'empty') {
     setUserChoice(value)    
     generateComputerChoice()
     }
@@ -36,7 +36,7 @@ const App = () => {
         setUserPoints(updatedUserPoints)
         setTurnResult("Your Point!")
         if (updatedUserPoints === 10){
-          setResult('You Win')
+          setResult('You Win!')
           const gameOff = true
           setGameOver(gameOff)
         }
@@ -48,7 +48,7 @@ const App = () => {
         setComputerPoints(updatedComputerPoints)
         setTurnResult("Computer's Point!")
         if (updatedComputerPoints === 10) {
-          setResult('Computer Wins')
+          setResult('Computer Wins!')
           const gameOff = true
           setGameOver(gameOff)
         }
@@ -70,7 +70,17 @@ const App = () => {
       <div className='result'>
         <h1>Turn Result: {turnResult}</h1>
       </div>
-      {(userChoice !== null && computerChoice !== null) && (
+      {(userChoice == 'empty' && computerChoice == 'empty') && (
+              <div className='choice'>
+              <div className='choice-user'>
+                <img className='user-choice' src={`../images/empty.png`} alt=''></img>
+              </div>
+              <div className='choice-computer'>
+                <img className='computer-choice' src={`../images/empty.png`} alt=''></img>
+              </div>
+              </div>
+      )}
+      {(userChoice !== 'empty' && computerChoice !== 'empty') && (
       <div className='choice'>
         <div className='choice-user'>
           <img className='user-choice' src={`../images/${userChoice}.png`} alt=''></img>
