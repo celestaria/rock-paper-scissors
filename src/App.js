@@ -36,7 +36,7 @@ const App = () => {
         setUserPoints(updatedUserPoints)
         setTurnResult("Your Point!")
         if (updatedUserPoints === 10){
-          setResult('You Won')
+          setResult('You Win')
           const gameOff = true
           setGameOver(gameOff)
         }
@@ -48,7 +48,7 @@ const App = () => {
         setComputerPoints(updatedComputerPoints)
         setTurnResult("Computer's Point!")
         if (updatedComputerPoints === 10) {
-          setResult('Computer Won')
+          setResult('Computer Wins')
           const gameOff = true
           setGameOver(gameOff)
         }
