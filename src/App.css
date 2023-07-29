@@ -28,12 +28,12 @@
   justify-content: center;
 }
 
-.computer-hand {
+.computer-choice {
   width: 15rem;
   height: 15rem;
 }
 
-.user-hand {
+.user-choice {
   width: 15rem;
   height: 15rem;
   transform: rotateY(180deg);

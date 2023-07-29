@@ -2,18 +2,20 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 const App = () => {
-  const [userChoice, setUserChoice] = useState('rock')
-  const [computerChoice, setComputerChoice] = useState('rock')
+  const [userChoice, setUserChoice] = useState(null)
+  const [computerChoice, setComputerChoice] = useState(null)
   const [userPoints, setUserPoints] = useState(0)
   const [computerPoints, setComputerPoints] = useState(0)
   const [turnResult, setTurnResult] = useState(null)
-  const [result, setResult] = useState('Let\'s see who wins')
+  const [result, setResult] = useState("Let's see who wins")
   const [gameOver, setGameOver] = useState(false)
   const choices = ['rock', 'paper', 'scissors']
 
   const handleClick = (value) => {
+    if (!gameOver && value !== null) {
     setUserChoice(value)    
     generateComputerChoice()
+    }
   }
 
   const generateComputerChoice = () => {
@@ -27,13 +29,13 @@ const App = () => {
 
   useEffect(() => {
     const comboMoves = userChoice + computerChoice
-    if (userPoints <= 4 && computerPoints <= 4) {
+    if (userPoints <= 9 && computerPoints <= 9) {
       if (comboMoves === 'scissorspaper' || comboMoves === 'rockscissors' || comboMoves === 'paperrock') {
         // userPoints.current += 1
         const updatedUserPoints = userPoints + 1
         setUserPoints(updatedUserPoints)
-        setTurnResult('User gets the point!')
-        if (updatedUserPoints === 5){
+        setTurnResult("User's point!")
+        if (updatedUserPoints === 10){
           setResult('User Wins')
           const gameOff = true
           setGameOver(gameOff)
@@ -44,8 +46,8 @@ const App = () => {
         // computerPoints.current += 1
         const updatedComputerPoints = computerPoints + 1
         setComputerPoints(updatedComputerPoints)
-        setTurnResult('Computer gets the point!')
-        if (updatedComputerPoints === 5) {
+        setTurnResult("Computer's point!")
+        if (updatedComputerPoints === 10) {
           setResult('Computer Wins')
           const gameOff = true
           setGameOver(gameOff)
@@ -53,7 +55,7 @@ const App = () => {
       }
 
       if (comboMoves === 'paperpaper' || comboMoves === 'rockrock' || comboMoves === 'scissorsscissors') {
-        setTurnResult('No one gets a point!')
+        setTurnResult("Noone's point!")
       }
     }
   }, [computerChoice, userChoice])
@@ -66,16 +68,18 @@ const App = () => {
         <h1>Computer Points: {computerPoints}</h1>
       </div>
       <div className='result'>
-        <h1>Turn Result: {turnResult}</h1>
+        <h1>{turnResult}</h1>
       </div>
+      {(userChoice !== null && computerChoice !== null) && (
       <div className='choice'>
         <div className='choice-user'>
-          <img className='user-hand' src={`../images/${userChoice}.png`} alt=''></img>
+          <img className='user-choice' src={`../images/${userChoice}.png`} alt=''></img>
         </div>
         <div className='choice-computer'>
-          <img className='computer-hand' src={`../images/${computerChoice}.png`} alt=''></img>
+          <img className='computer-choice' src={`../images/${computerChoice}.png`} alt=''></img>
         </div>
       </div>
+      )}
       <div className='button-div'>
         {choices.map((choice, index) =>
           <button className='button' key={index} onClick={() => handleClick(choice)} disabled={gameOver}>
@@ -89,10 +93,12 @@ const App = () => {
         }
       </div>
       <div className='result'>
-      <h1>Final Result: {result}</h1>
+        {gameOver && (
+          <h1>Final Result: {result}</h1>
+      )}
       </div>
     </div>
-  )
-}
+    )
+  }
 
 export default App
