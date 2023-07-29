@@ -64,7 +64,7 @@ const App = () => {
     <div className="App">
       <h1 className='heading'>Rock Paper Scissors</h1>
       <div className='score'>
-        <h1>User's Points: {userPoints}</h1>
+        <h1>Your Points: {userPoints}</h1>
         <h1>Computer's Points: {computerPoints}</h1>
       </div>
       <div className='result'>
