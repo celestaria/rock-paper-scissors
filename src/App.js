@@ -33,7 +33,7 @@ const App = () => {
       if (comboMoves === 'emptyempty') {
         setTurnResult("Start!")
       }
-      if (comboMoves === 'scissorspaper' || comboMoves === 'rockscissors' || comboMoves === 'paperrock') {
+      if (comboMoves === 'ScissorsPaper' || comboMoves === 'RockScissors' || comboMoves === 'PaperRock') {
         // userPoints.current += 1
         const updatedUserPoints = userPoints + 1
         setUserPoints(updatedUserPoints)
@@ -45,7 +45,7 @@ const App = () => {
         }
       }
 
-      if (comboMoves === 'paperscissors' || comboMoves === 'scissorsrock' || comboMoves === 'rockpaper') {
+      if (comboMoves === 'PaperScissors' || comboMoves === 'ScissorsRock' || comboMoves === 'RockPaper') {
         // computerPoints.current += 1
         const updatedComputerPoints = computerPoints + 1
         setComputerPoints(updatedComputerPoints)
@@ -57,7 +57,7 @@ const App = () => {
         }
       }
 
-      if (comboMoves === 'paperpaper' || comboMoves === 'rockrock' || comboMoves === 'scissorsscissors') {
+      if (comboMoves === 'PaperPaper' || comboMoves === 'RockRock' || comboMoves === 'ScissorsScissors') {
         setTurnResult("No Point!")
       }
     }
