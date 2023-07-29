@@ -2,13 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: darkslategray;
+  font-family: cursive;
+  font-style: bold;
 }
 
 .App {
   text-align: center;
-  height: 150vh;
-  background-color: pink;
-  font-family: sans-serif;
+  height: 100vh;
+  background-color: lightgray;
 }
 
 .heading {
@@ -48,7 +50,7 @@
   height: 50px;
   justify-content: space-around;
   align-items: center;
-  background-color: violet;
+  background-color: tan;
   font-size: 20px;
   border-radius: 5px;
   cursor: pointer;

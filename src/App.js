@@ -34,9 +34,9 @@ const App = () => {
         // userPoints.current += 1
         const updatedUserPoints = userPoints + 1
         setUserPoints(updatedUserPoints)
-        setTurnResult("User's point!")
+        setTurnResult("Your Point!")
         if (updatedUserPoints === 10){
-          setResult('User Wins')
+          setResult('You Won')
           const gameOff = true
           setGameOver(gameOff)
         }
@@ -46,16 +46,16 @@ const App = () => {
         // computerPoints.current += 1
         const updatedComputerPoints = computerPoints + 1
         setComputerPoints(updatedComputerPoints)
-        setTurnResult("Computer's point!")
+        setTurnResult("Computer's Point!")
         if (updatedComputerPoints === 10) {
-          setResult('Computer Wins')
+          setResult('Computer Won')
           const gameOff = true
           setGameOver(gameOff)
         }
       }
 
       if (comboMoves === 'paperpaper' || comboMoves === 'rockrock' || comboMoves === 'scissorsscissors') {
-        setTurnResult("Noone's point!")
+        setTurnResult("No Point!")
       }
     }
   }, [computerChoice, userChoice])
@@ -64,11 +64,11 @@ const App = () => {
     <div className="App">
       <h1 className='heading'>Rock Paper Scissors</h1>
       <div className='score'>
-        <h1>User Points: {userPoints}</h1>
-        <h1>Computer Points: {computerPoints}</h1>
+        <h1>User's Points: {userPoints}</h1>
+        <h1>Computer's Points: {computerPoints}</h1>
       </div>
       <div className='result'>
-        <h1>{turnResult}</h1>
+        <h1>Turn Result: {turnResult}</h1>
       </div>
       {(userChoice !== null && computerChoice !== null) && (
       <div className='choice'>
