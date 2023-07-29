@@ -68,7 +68,7 @@ const App = () => {
         <h1>Computer's Points: {computerPoints}</h1>
       </div>
       <div className='result'>
-        <h1>Turn Result: {turnResult}</h1>
+        <h1>{turnResult}</h1>
       </div>
       {(userChoice == 'empty' && computerChoice == 'empty') && (
               <div className='choice'>
@@ -104,7 +104,7 @@ const App = () => {
       </div>
       <div className='result'>
         {gameOver && (
-          <h1>Final Result: {result}</h1>
+          <h1>{result}</h1>
       )}
       </div>
     </div>
