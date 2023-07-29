@@ -30,6 +30,9 @@ const App = () => {
   useEffect(() => {
     const comboMoves = userChoice + computerChoice
     if (userPoints <= 9 && computerPoints <= 9) {
+      if (comboMoves === 'emptyempty') {
+        setTurnResult("Start!")
+      }
       if (comboMoves === 'scissorspaper' || comboMoves === 'rockscissors' || comboMoves === 'paperrock') {
         // userPoints.current += 1
         const updatedUserPoints = userPoints + 1
