@@ -7,5 +7,5 @@ A rock paper scissors game project created following: https://www.youtube.com/wa
 ## Technologies
 
 - Javascript
-- React: useState, useEffect
+- React
 - CSS
