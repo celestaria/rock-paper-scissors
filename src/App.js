@@ -9,7 +9,7 @@ const App = () => {
   const [turnResult, setTurnResult] = useState(null)
   const [result, setResult] = useState("Let's see who wins")
   const [gameOver, setGameOver] = useState(false)
-  const choices = ['rock', 'paper', 'scissors']
+  const choices = ['Rock', 'Paper', 'Scissors']
 
   const handleClick = (value) => {
     if (!gameOver && value !== 'empty') {
@@ -102,7 +102,7 @@ const App = () => {
       </div>
       <div className='button-div'>
         {gameOver && 
-          <button className='button' onClick={() => reset()}>Restart Game?</button>
+          <button className='button' onClick={() => reset()}>Restart</button>
         }
       </div>
       <div className='result'>
