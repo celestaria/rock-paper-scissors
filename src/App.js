@@ -28,7 +28,6 @@ const App = () => {
   const reset = () => {
     window.location.reload()
   }
-  let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
